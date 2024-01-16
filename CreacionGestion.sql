@@ -51,6 +51,31 @@ foreign key (id_medico) references medico(id),
 foreign key (id_paciente) references paciente(id)
 );
 
+CREATE TABLE alta(
+id_alta int primary key not null,
+medicacion varchar(50) not null,
+indicaciones varchar(100) not null,
+periodo_internacion varchar(50) not null,
+estudios_pendientes varchar(100),
+fecha_alta date not null,
+id_paciente int not null,
+id_medico int not null,
+id_diagnostico int not null,
+foreign key(id_paciente) references paciente(id),
+foreign key(id_medico) references medico(id),
+foreign key(id_diagnostico) references diagnostico(id)
+);
+
+CREATE TABLE internacion(
+id_internacion int primary key not null,
+id_paciente int not null,
+numero_habitacion int not null,
+id_diagnostico int not null,
+fecha_ingreso date not null,
+foreign key(id_paciente) references paciente(id),
+foreign key(id_diagnostico) references diagnostico(id)
+);
+
 ALTER TABLE medico
 ADD COLUMN sector varchar(20);
 
