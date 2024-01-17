@@ -36,7 +36,7 @@ nombre varchar(20) not null,
 apellido varchar(20) not null,
 edad int not null,
 fecha_de_nacimiento date not null,
-historia_clinica varchar(250),
+sintomas varchar(250),
 estudios_pendientes varchar(100),
 estudios_hechos varchar(100)
 );
@@ -44,7 +44,7 @@ estudios_hechos varchar(100)
 CREATE TABLE diagnostico(
 id_diagnostico int primary key not null,
 causa varchar(100) not null,
-resultado varchar(100) not null,
+epicrisis varchar(200) not null,
 id_medico int not null,
 id_paciente int not null,
 foreign key (id_medico) references medico(id),
