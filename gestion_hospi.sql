@@ -124,13 +124,3 @@ ADD COLUMN sector varchar(20);
 
 ALTER TABLE admision
 ADD column id_empleado_adm int not null;
-
-
-
-
-
-
-
-
-
-
