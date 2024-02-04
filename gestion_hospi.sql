@@ -114,13 +114,27 @@ foreign key(id_paciente) references paciente(id),
 foreign key(id_medico) references medico(id),
 foreign key(id_obra_social) references obrasocial(id),
 foreign key(id_alta) references alta(id),
-foreign key(id_internacion) references internacion(id),
-foreign key(id_empleado_adm) references empleado_administrativo
-);
+foreign key(id_internacion) references internacion(id));
 
+
+alter table admision
+drop foreign key id_empleado_adm;
+
+ALTER TABLE admision
+ADD FOREIGN KEY (id_empleado_adm) references empleado_administrativo(id_empleado_adm);
 
 ALTER TABLE medico
 ADD COLUMN sector varchar(20);
 
 ALTER TABLE admision
 ADD column id_empleado_adm int not null;
+
+ALTER TABLE admision MODIFY COLUMN id_admision int not null auto_increment;
+
+-- Creacion tabla obrasocial_prepagas
+
+CREATE TABLE obrasocial_prepagas(
+id_obrasocial_prepagas int primary key auto_increment not null,
+Nombre_prepaga varchar(30),
+habilitado varchar(2),
+Copago varchar(2));
